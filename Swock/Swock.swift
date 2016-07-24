@@ -27,31 +27,21 @@ public indirect enum Noun {
     
 }
 
-// MARK: - Booleans
-
-public extension Noun {
-    
-    static let yes: Noun = 0
-    
-    static let no: Noun = 1
-    
-}
-
 // MARK: - Nock operators
 
 public func wut(noun: Noun) -> Noun {
     switch noun {
     case .Cell:
-        return .yes
+        return true
     case .Atom:
-        return .no
+        return false
     }
 }
 
 public func lus(noun: Noun) -> Noun {
     switch noun {
-    case .Cell:
-        fatalError("Cannot call `lus()` on a cell")
+    case let .Cell(a):
+        fatalError("Cannot call `lus()` on a cell: \(a)")
     case let .Atom(a):
         return .Atom(a + 1)
     }
@@ -60,9 +50,9 @@ public func lus(noun: Noun) -> Noun {
 public func tis(noun: Noun) -> Noun {
     switch noun {
     case let .Cell(a, b):
-        return a == b ? .yes : .no
-    case .Atom:
-        fatalError("Cannot call `tis()` on an atom")
+        return a == b ? true : false
+    case let .Atom(a):
+        fatalError("Cannot call `tis()` on an atom: \(a)")
     }
 }
 
@@ -79,7 +69,7 @@ public func fas(noun: Noun) -> Noun {
         let outer: Noun = .Atom(2 + axis % 2)
         return fas([outer, fas([inner, tree])])
     default:
-        fatalError("Invalid `fas()` arguments")
+        fatalError("Invalid `fas()` arguments: \(noun)")
     }
 }
 
@@ -114,11 +104,21 @@ public func tar(noun: Noun) -> Noun {
         case let .Cell(10, .Cell(_, c)):
             return tar([a, c]);
         default:
-            fatalError("Invalid `tar()` formula")
+            fatalError("Invalid `tar()` formula: \(formula)")
         }
     default:
-        fatalError("Invalid `tar()` arguments")
+        fatalError("Invalid `tar()` arguments: \(noun)")
     }
+}
+
+// MARK: - Boolean literal convertible
+
+extension Noun: BooleanLiteralConvertible {
+    
+    public init(booleanLiteral value: Bool) {
+        self = value ? 0 : 1
+    }
+    
 }
 
 // MARK: - Integer literal convertible
