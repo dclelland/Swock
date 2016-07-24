@@ -1,5 +1,10 @@
+//: # Nock in Swift
+
 import Foundation
 import Swock
+
+//: ## Trivial operators
+//:
 
 // ?[a b]           0
 // ?a               1
@@ -7,14 +12,12 @@ import Swock
 wut([1, 2])
 wut(1)
 
-// +[a b]           +[a b]
 // +a               1 + a
 
 lus(1)
 
 // =[a a]           0
 // =[a b]           1
-// =a               =a
 
 tis([1, 1])
 tis([1, 2])
@@ -34,7 +37,7 @@ fas([.Atom(2 + 2 + 1), [[1, 2], [3, 4]]])
 
 // *[a [b c] d]     [*[a b c] *[a d]]
 
-tar([1, [2, 3], 4])
+//tar([1, [2, 3], 4])
 
 // *[a 0 b]         /[b a]
 // *[a 1 b]         b

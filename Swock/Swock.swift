@@ -8,14 +8,24 @@
 
 import Foundation
 
+/// A noun is an atom or a cell.
+
 public indirect enum Noun {
+    
+    /// A cell is any ordered pair of nouns.
     
     case Cell(Noun, Noun)
     
+    /// An atom is any natural number.
+    
     case Atom(UInt)
     
-    init(_ elements: [Noun]) {
-        switch (elements.head, elements.tail) {
+    /// Initialise a noun with an array of nouns.
+    /// Arrays right-associate into nested cells, e.g. `[a, b, c]` -> `[a, [b, c]]`.
+    /// Crashes if the array is empty.
+    
+    init(_ nouns: [Noun]) {
+        switch (nouns.head, nouns.tail) {
         case let (head?, tail?):
             self = .Cell(head, Noun(tail))
         case let (head?, nil):
@@ -27,7 +37,9 @@ public indirect enum Noun {
     
 }
 
-// MARK: - Nock operators
+// MARK: - Trivial operators
+
+/// Returns true if the noun is a cell, and false if the noun is an atom.
 
 public func wut(noun: Noun) -> Noun {
     switch noun {
@@ -38,6 +50,9 @@ public func wut(noun: Noun) -> Noun {
     }
 }
 
+/// Returns an incremented atom.
+/// Crashes if the noun is a cell.
+
 public func lus(noun: Noun) -> Noun {
     switch noun {
     case let .Cell(a):
@@ -47,6 +62,9 @@ public func lus(noun: Noun) -> Noun {
     }
 }
 
+/// Returns true if the noun is a cell whose head and tail are identical, otherwise, returns false.
+/// Crashes if the noun is an atom.
+
 public func tis(noun: Noun) -> Noun {
     switch noun {
     case let .Cell(a, b):
@@ -55,6 +73,10 @@ public func tis(noun: Noun) -> Noun {
         fatalError("Cannot call `tis()` on an atom: \(a)")
     }
 }
+
+// MARK: - Tree addressing
+
+/// Uses the noun's head to retrieve the contents of the noun's tail, using a tree addressing system where the head of every noun `n` is `2n`, while the tail is `2n + 1`.
 
 public func fas(noun: Noun) -> Noun {
     switch noun {
@@ -72,6 +94,10 @@ public func fas(noun: Noun) -> Noun {
         fatalError("Invalid `fas()` arguments: \(noun)")
     }
 }
+
+// MARK: - Operators
+
+/// Executes the noun's tail (the *formula*) using its head as the argument (the *subject*).
 
 public func tar(noun: Noun) -> Noun {
     switch noun {
