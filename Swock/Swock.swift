@@ -8,7 +8,7 @@
 
 import Foundation
 
-indirect enum Noun {
+public indirect enum Noun {
     
     case Atom(UInt)
     
@@ -29,7 +29,7 @@ indirect enum Noun {
 
 extension Noun: IntegerLiteralConvertible {
     
-    init(integerLiteral value: UInt) {
+    public init(integerLiteral value: UInt) {
         self = .Atom(value)
     }
 
@@ -37,7 +37,7 @@ extension Noun: IntegerLiteralConvertible {
 
 extension Noun: ArrayLiteralConvertible {
     
-    init(arrayLiteral elements: Noun...) {
+    public init(arrayLiteral elements: Noun...) {
         self.init(elements)
     }
     
@@ -45,7 +45,7 @@ extension Noun: ArrayLiteralConvertible {
 
 extension Noun: CustomStringConvertible {
     
-    var description: String {
+    public var description: String {
         switch self {
         case .Atom(let value):
             return String(value)
@@ -55,6 +55,14 @@ extension Noun: CustomStringConvertible {
     }
     
 }
+
+//extension Noun: Equatable {
+//    
+//}
+//
+//extension Noun: SequenceType {
+//    
+//}
 
 private extension Array {
     
