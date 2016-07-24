@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: Nouns
+
 /// A noun is an atom or a cell.
 
 public indirect enum Noun {
@@ -74,7 +76,7 @@ public func tis(noun: Noun) -> Noun {
     }
 }
 
-// MARK: - Tree addressing
+// MARK: Tree addressing
 
 /// Uses the noun's head to retrieve the contents of the noun's tail, using a tree addressing system where the head of every noun `n` is `2n`, while the tail is `2n + 1`.
 
@@ -95,9 +97,10 @@ public func fas(noun: Noun) -> Noun {
     }
 }
 
-// MARK: - Operators
+// MARK: Nock
 
 /// Executes the noun's tail (the *formula*) using its head as the argument (the *subject*).
+/// Cribbed shamelessly from the [Nock examples page](https://urbit.org/docs/nock/implementations/swift/).
 
 public func tar(noun: Noun) -> Noun {
     switch noun {
@@ -147,7 +150,7 @@ extension Noun: BooleanLiteralConvertible {
     
 }
 
-// MARK: - Integer literal convertible
+// MARK: Integer literal convertible
 
 extension Noun: IntegerLiteralConvertible {
     
@@ -157,7 +160,7 @@ extension Noun: IntegerLiteralConvertible {
 
 }
 
-// MARK: - Array literal convertible
+// MARK: Array literal convertible
 
 extension Noun: ArrayLiteralConvertible {
     
@@ -167,7 +170,7 @@ extension Noun: ArrayLiteralConvertible {
     
 }
 
-// MARK: - Custom string convertible
+// MARK: Custom string convertible
 
 extension Noun: CustomStringConvertible {
     
@@ -182,7 +185,7 @@ extension Noun: CustomStringConvertible {
     
 }
 
-// MARK: - Equatable
+// MARK: Equatable
 
 extension Noun: Equatable { }
 
