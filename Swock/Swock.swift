@@ -128,9 +128,11 @@ public func tar(noun: Noun) -> Noun {
             return tar([a, 7, [[7, [0, 1], b], 0, 1], c])
         case let .Cell(9, .Cell(b, c)):
             return tar([a, 7, c, 2, [0, 1], 0, b])
-        case let .Cell(10, .Cell(.Cell(_, c), d)):
+        case let .Cell(10, .Cell(.Cell(b, c), d)):
+            print("Static hint: \(b)")
             return tar([a, 8, c, 7, [0, 3], d])
-        case let .Cell(10, .Cell(_, c)):
+        case let .Cell(10, .Cell(b, c)):
+            print("Dynamic hint: \(b)")
             return tar([a, c]);
         default:
             fatalError("Invalid `tar()` formula: \(formula)")
