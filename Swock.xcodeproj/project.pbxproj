@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6553FBD21D44915100A270F3 /* Swock.h in Headers */ = {isa = PBXBuildFile; fileRef = 6553FBD11D44915100A270F3 /* Swock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6553FBD71D44915700A270F3 /* Swock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6573EE7D1D4484E000BA0433 /* Swock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6553FBC91D44910700A270F3 /* Swock.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Swock.playground; path = Swock/Swock.playground; sourceTree = "<group>"; };
 		6553FBCF1D44915100A270F3 /* Swock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6553FBD11D44915100A270F3 /* Swock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Swock.h; sourceTree = "<group>"; };
 		6553FBD31D44915100A270F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6573EE7D1D4484E000BA0433 /* Swock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -33,7 +31,6 @@
 		6553FBD01D44915100A270F3 /* Swock */ = {
 			isa = PBXGroup;
 			children = (
-				6553FBD11D44915100A270F3 /* Swock.h */,
 				6573EE7D1D4484E000BA0433 /* Swock.swift */,
 				6553FBD31D44915100A270F3 /* Info.plist */,
 			);
@@ -64,7 +61,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6553FBD21D44915100A270F3 /* Swock.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +273,7 @@
 				6553FBD61D44915100A270F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6573EE6E1D4484BE00BA0433 /* Build configuration list for PBXProject "Swock" */ = {
 			isa = XCConfigurationList;

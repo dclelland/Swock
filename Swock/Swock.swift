@@ -56,14 +56,6 @@ extension Noun: CustomStringConvertible {
     
 }
 
-//extension Noun: Equatable {
-//    
-//}
-//
-//extension Noun: SequenceType {
-//    
-//}
-
 private extension Array {
     
     var head: Element? {
