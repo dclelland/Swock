@@ -1,39 +1,70 @@
-//: # Nock in Swift
-
+/*:
+ # Nock in Swift
+ */
 import Foundation
 import Swock
-
-//: ## Trivial operators
-//:
-
-// ?[a b]           0
-// ?a               1
-
+/*:
+ ## Nouns
+ Nouns can be initialised from booleans, integers, or (non-empty) arrays.
+ */
+let boolean: Noun = true
+let integer: Noun = 42
+let array: Noun = [1, 2, 3, 4]
+/*:
+ ## Trivial operators
+ ### `wut`, `?`
+ Returns true if the noun is a cell, and false if the noun is an atom.
+ ```
+ ?[a b]           0
+ ?a               1
+ ```
+ */
 wut([1, 2])
 wut(1)
-
-// +a               1 + a
-
+/*:
+ ### `lus`, `+`
+ Increments an atom.
+ Crashes if the noun is a cell.
+ ```
+ +a               1 + a
+ ```
+ */
 lus(1)
-
-// =[a a]           0
-// =[a b]           1
-
+lus(43)
+/*:
+ ### `tis`, `=`
+ Compares the head and tail of a cell.
+ Crashes if the noun is an atom.
+ ```
+ =[a a]           0
+ =[a b]           1
+ ```
+ */
 tis([1, 1])
 tis([1, 2])
-
-// /[1 a]           a
-// /[2 a b]         a
-// /[3 a b]         b
-// /[(a + a) b]     /[2 /[a b]]
-// /[(a + a + 1) b] /[3 /[a b]]
-// /a               /a
-
+/*:
+ ## Tree addressing
+ ### `fas`, `/`
+ Uses the noun's head to retrieve the contents of the noun's tail, using a tree addressing system where the head of every noun `n` is `2n`, while the tail is `2n + 1`.
+ ```
+ /[1 a]           a
+ /[2 a b]         a
+ /[3 a b]         b
+ /[(a + a) b]     /[2 /[a b]]
+ /[(a + a + 1) b] /[3 /[a b]]
+ /a               /a
+ ```
+ */
 fas([1, [1, 2]])
 fas([2, [1, 2]])
 fas([3, [1, 2]])
 fas([.Atom(2 + 2), [[1, 2], [3, 4]]])
 fas([.Atom(2 + 2 + 1), [[1, 2], [3, 4]]])
+/*:
+ ## Nock
+ ### `tar`, `*`
+ Executes the noun's tail (the *formula*) using its head as the argument (the *subject*).
+ */
 
 // *[a [b c] d]     [*[a b c] *[a d]]
 
