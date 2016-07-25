@@ -193,10 +193,10 @@ extension Noun: Equatable { }
 
 public func == (left: Noun, right: Noun) -> Bool {
     switch (left, right) {
-    case (.Atom(let leftValue), .Atom(let rightValue)):
-        return leftValue == rightValue
     case (.Cell(let leftHead, let leftTail), .Cell(let rightHead, let rightTail)):
         return leftHead == rightHead && leftTail == rightTail
+    case (.Atom(let leftValue), .Atom(let rightValue)):
+        return leftValue == rightValue
     default:
         return false
     }
