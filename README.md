@@ -9,9 +9,9 @@ Partially cribbed from the [Nock examples page](https://urbit.org/docs/nock/impl
 ## Nouns
 
 ```swift
-let boolean: Noun = true // 0
-let integer: Noun = 42 // 42
-let array: Noun = [1, 2, 3, 4] // [1 [2 [3 4]]]
+let loobean: Noun = true // 0
+let atom: Noun = 42 // 42
+let cell: Noun = [1, 2, 3, 4] // [1 [2 [3 4]]]
 ```
 
 ## Trivial operators
