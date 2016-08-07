@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		6553FBD71D44915700A270F3 /* Swock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6573EE7D1D4484E000BA0433 /* Swock.swift */; };
+		6554D74C1D570232004FED87 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 6554D74B1D570232004FED87 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6553FBC91D44910700A270F3 /* Swock.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Swock.playground; path = Swock/Swock.playground; sourceTree = "<group>"; };
 		6553FBCF1D44915100A270F3 /* Swock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6553FBD31D44915100A270F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6554D74B1D570232004FED87 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6573EE7D1D4484E000BA0433 /* Swock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -40,6 +42,7 @@
 		6573EE6A1D4484BE00BA0433 = {
 			isa = PBXGroup;
 			children = (
+				6554D74B1D570232004FED87 /* README.md */,
 				6553FBC91D44910700A270F3 /* Swock.playground */,
 				6553FBD01D44915100A270F3 /* Swock */,
 				6573EE741D4484BE00BA0433 /* Products */,
@@ -132,6 +135,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6554D74C1D570232004FED87 /* README.md in Sources */,
 				6553FBD71D44915700A270F3 /* Swock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
